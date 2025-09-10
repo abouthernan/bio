@@ -12,7 +12,12 @@ const last_posts = posts.slice(0, 3);
 ---
 
 <BaseLayout sideBarActiveItemID="home">
-  <div class="pb-12 mt-5">
+  <div class="pb-12 mt-50">
+     <div class="avatar transition ease-in-out hover:scale-[102%] block m-auto">
+          <div class="w-[8.5rem]">
+            <image class="mask mask-circle" format="webp" width={400} height={400} src="/profile.png" alt="Profile image" />
+          </div>
+      </div>
     <div class="text-xl py-1">Hey there 👋</div>
     <div class="text-5xl font-bold">I'm Hernán Estupiñán</div>
     <div class="text-3xl py-3 font-bold">B2B Growth Specialist</div>
@@ -91,3 +96,34 @@ const last_posts = posts.slice(0, 3);
     ))
   }-->
 </BaseLayout>
+
+<style>
+  
+  /* Responsive */
+  @media (min-width: 1024px) {
+   .avatar {
+    display: none;
+  }
+
+  .pb-12{
+    margin-top: 5rem;
+  }
+  
+  }
+  
+  @media (max-width: 480px) {
+
+    .mt-50 {
+      text-align: center;
+    }
+
+    .avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Centra el contenedor si tiene un ancho específico */
+  }
+
+  }
+
+</style>
