@@ -1,0 +1,60 @@
+---
+// src/components/LanguageSelector.astro
+import { languages } from '../lib/i18n.js';
+
+const { currentLang = 'es', currentPath = '/' } = Astro.props;
+
+function getLocalizedPath(targetLang, path) {
+  if (targetLang === 'es') {
+    // Para español, removemos el prefijo /en si existe
+    return path.replace(/^\/en/, '') || '/';
+  } else {
+    // Para inglés, agregamos el prefijo /en
+    const cleanPath = path.replace(/^\/en/, '');
+    return `/en${cleanPath}`;
+  }
+}
+---
+
+<div class="language-selector">
+  {Object.entries(languages).map(([lang, name]) => (
+    <a 
+      href={getLocalizedPath(lang, currentPath)}
+      class={`lang-link ${lang === currentLang ? 'active' : ''}`}
+    >
+      {name}
+    </a>
+  ))}
+</div>
+
+<style>
+  .language-selector {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .lang-link {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    color: inherit;
+  }
+  
+  .lang-link:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .lang-link.active {
+    background-color: #3b82f6;
+    color: white;
+  }
+
+  /* Para modo oscuro si lo tienes */
+  @media (prefers-color-scheme: dark) {
+    .lang-link:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+</style>

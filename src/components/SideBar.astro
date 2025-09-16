@@ -2,7 +2,9 @@
 import SideBarFooter from "./SideBarFooter.astro";
 import { Image } from "astro:assets";
 import SideBarMenu from "./SideBarMenu.astro";
-const { sideBarActiveItemID } = Astro.props;
+import LanguageSelector from "./LanguageSelector.astro";
+
+const { sideBarActiveItemID, currentLang, currentPath } = Astro.props;
 ---
 
 <div class="drawer-side z-40">
@@ -17,6 +19,12 @@ const { sideBarActiveItemID } = Astro.props;
         </div>
       </a>
     </div>
+    
+    <!-- Selector de idioma en el sidebar -->
+    <div class="w-fit mx-auto mb-4">
+      <LanguageSelector currentLang={currentLang} currentPath={currentPath} />
+    </div>
+    
     <SideBarMenu sideBarActiveItemID={sideBarActiveItemID} />
     <SideBarFooter />
   </aside>
