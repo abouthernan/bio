@@ -14,9 +14,9 @@ export const ui = {
     'nav.contact': 'Contacto',
     'hero.greeting': 'Hola 👋',
     'hero.name': 'Soy Hernán Estupiñán',
-    'hero.role': 'Growth Marketing and Product Specialist',
+    'hero.role': 'Especialista en Growth Marketing y Producto',
     'hero.cta': '¡Hablemos!',
-    'hero.resume': 'Descargar CV'
+    'hero.resume': 'Ver CV'
   },
   en: {
     'nav.home': 'Home',
@@ -27,7 +27,7 @@ export const ui = {
     'hero.name': "I'm Hernán Estupiñán",
     'hero.role': 'Growth Marketing and Product Specialist',
     'hero.cta': "Let's Talk!",
-    'hero.resume': 'Download Resume'
+    'hero.resume': 'See my Resume'
   }
 };
 
