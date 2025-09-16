@@ -12,7 +12,7 @@ export const ui = {
     'nav.about': 'Acerca',
     'nav.blog': 'Blog',
     'nav.contact': 'Contacto',
-    'hero.greeting': 'Hey there 👋',
+    'hero.greeting': 'Hola 👋',
     'hero.name': 'Soy Hernán Estupiñán',
     'hero.role': 'Growth Marketing and Product Specialist',
     'hero.cta': '¡Hablemos!',
