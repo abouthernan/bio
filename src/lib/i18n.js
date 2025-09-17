@@ -1,7 +1,7 @@
 // src/lib/i18n.js
 export const languages = {
   es: 'Español',
-  en: 'Inglés'
+  en: 'English'
 };
 
 export const defaultLang = 'es';

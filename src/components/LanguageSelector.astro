@@ -44,7 +44,7 @@ function getLocalizedPath(targetLang, path) {
       href={getLocalizedPath(lang, currentPath)}
       class={`btn btn-sm ${lang === currentLang ? 'btn-primary' : 'btn-outline'}`}
     >
-      <span class="flag-icon">{lang === 'es' ? '🇪🇸' : '🇺🇸'}</span>
+      <span class="flag-icon">{lang === 'es' ? '' : '' }</span>
       {name}
     </a>
   ))}
@@ -72,6 +72,15 @@ function getLocalizedPath(targetLang, path) {
   .flag-icon {
     font-size: 1em;
     margin-right: 0.25rem;
+  }
+
+   /* Personalizar btn-sm solo en este componente */
+  .btn-sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    min-height: 1.5rem;
+    padding-left: 0rem !important;
+    /* Agrega tus modificaciones aquí */
   }
 
   /* Prevenir que el dropdown se salga de pantalla */
