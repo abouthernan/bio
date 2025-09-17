@@ -19,7 +19,10 @@ const { title, currentLang, currentPath } = Astro.props;
       <a class="btn btn-ghost normal-case text-xl" href="/">Hernán Estupiñán ⚡️</a>
     </div>
     <div class="navbar-end">
-      <LanguageSelector currentLang={currentLang} currentPath={currentPath} />
+      <!-- Selector de idioma solo en mobile -->
+      <div class="lg:hidden">
+        <LanguageSelector currentLang={currentLang} currentPath={currentPath} />
+      </div>
     </div>
   </div>
 </div>

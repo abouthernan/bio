@@ -1,60 +1,85 @@
 ---
-// src/components/LanguageSelector.astro
 import { languages } from '../lib/i18n.js';
 
 const { currentLang = 'es', currentPath = '/' } = Astro.props;
 
 function getLocalizedPath(targetLang, path) {
   if (targetLang === 'es') {
-    // Para español, removemos el prefijo /en si existe
     return path.replace(/^\/en/, '') || '/';
   } else {
-    // Para inglés, agregamos el prefijo /en
     const cleanPath = path.replace(/^\/en/, '');
     return `/en${cleanPath}`;
   }
 }
 ---
 
-<div class="language-selector">
+<!-- Versión compacta para mobile/header -->
+<div class="lg:hidden">
+  <div class="dropdown dropdown-end">
+    <div tabindex="0" role="button" class="btn btn-square btn-ghost">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.681 0 3.445.124 5.227.371M9 5.25V4.875c0-.621.504-1.125 1.125-1.125s1.125.504 1.125 1.125V5.25m0 6.75V4.875c0-.621.504-1.125 1.125-1.125s1.125.504 1.125 1.125V5.25m0 6.75V4.875c0-.621.504-1.125 1.125-1.125s1.125.504 1.125 1.125V12M9 12v2.25"/>
+      </svg>
+    </div>
+    <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-32 p-2 shadow border border-base-300 dropdown-mobile">
+      {Object.entries(languages).map(([lang, name]) => (
+        <li>
+          <a 
+            href={getLocalizedPath(lang, currentPath)}
+            class={`${lang === currentLang ? 'active' : ''}`}
+          >
+            <span class="flag-icon">{lang === 'es' ? '🇪🇸' : '🇺🇸'}</span>
+            {name}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<!-- Versión expandida para desktop/sidebar -->
+<div class="hidden lg:flex gap-2">
   {Object.entries(languages).map(([lang, name]) => (
     <a 
       href={getLocalizedPath(lang, currentPath)}
-      class={`lang-link ${lang === currentLang ? 'active' : ''}`}
+      class={`btn btn-sm ${lang === currentLang ? 'btn-primary' : 'btn-outline'}`}
     >
+      <span class="flag-icon">{lang === 'es' ? '🇪🇸' : '🇺🇸'}</span>
       {name}
     </a>
   ))}
 </div>
 
 <style>
-  .language-selector {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+  /* Posicionamiento específico para mobile */
+  .dropdown-mobile {
+    right: 0 !important;
+    left: auto !important;
+    top: 100% !important;
+    transform: translateX(0) !important;
   }
-  
-  .lang-link {
-    padding: 0.5rem 1rem;
-    border-radius: 0.375rem;
-    text-decoration: none;
-    transition: all 0.2s;
-    color: inherit;
+
+  /* Asegurar que el dropdown esté alineado correctamente */
+  .lg\\:hidden .dropdown {
+    position: relative;
   }
-  
-  .lang-link:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
-  
-  .lang-link.active {
+
+  .dropdown-content a.active {
     background-color: #3b82f6;
     color: white;
   }
 
-  /* Para modo oscuro si lo tienes */
-  @media (prefers-color-scheme: dark) {
-    .lang-link:hover {
-      background-color: rgba(255, 255, 255, 0.1);
+  .flag-icon {
+    font-size: 1em;
+    margin-right: 0.25rem;
+  }
+
+  /* Prevenir que el dropdown se salga de pantalla */
+  @media (max-width: 480px) {
+    .dropdown-mobile {
+      right: 0 !important;
+      left: auto !important;
+      min-width: 120px;
     }
   }
 </style>

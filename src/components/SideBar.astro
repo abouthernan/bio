@@ -20,8 +20,8 @@ const { sideBarActiveItemID, currentLang, currentPath } = Astro.props;
       </a>
     </div>
     
-    <!-- Selector de idioma en el sidebar -->
-    <div class="w-fit mx-auto mb-4">
+    <!-- Selector de idioma solo en desktop -->
+    <div class="hidden lg:block w-fit mx-auto mb-4">
       <LanguageSelector currentLang={currentLang} currentPath={currentPath} />
     </div>
     
