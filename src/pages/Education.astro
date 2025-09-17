@@ -1,0 +1,33 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Formación" sideBarActiveItemID="Education">
+    
+  
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Formación</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Growth B2B Specialist"
+      subtitle="2023 at Platzi, Bogotá, Colombia"
+    />
+    <TimeLineElement
+      title="No Code Maker"
+      subtitle="2022 to 2022 at Platzi, Bogotá, Colombia"
+    />
+    <TimeLineElement
+      title="Especialista en Gerencia de Proyectos"
+      subtitle="2016 at Universidad de La Sabana, Chía, Colombia"
+    />
+    <TimeLineElement
+      title="Ingeniero en Informática"
+      subtitle="2011 - 2016 at Universidad de La Sabana, Chía, Colombia"
+    />
+  </div>
+
+  
+</BaseLayout>
