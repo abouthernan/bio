@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
 import createSlug from "../lib/createSlug";
-import { getLangFromUrl, useTranslations } from '../lib/i18n.js';
+import { getLangFromUrl, useTranslations } from "../lib/i18n.js";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -18,7 +18,9 @@ const t = useTranslations(lang);
 
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-50">
-    <div class="avatar transition ease-in-out hover:scale-[102%] block m-auto pb-10">
+    <div
+      class="avatar transition ease-in-out hover:scale-[102%] block m-auto pb-10"
+    >
       <div class="w-[12.5rem]">
         <img
           class="mask mask-circle"
@@ -29,49 +31,47 @@ const t = useTranslations(lang);
         />
       </div>
     </div>
-    <div class="text-xl py-1">{t('hero.greeting')}</div>
-    <div class="text-5xl font-bold">{t('hero.name')}</div>
+    <div class="text-xl py-1">{t("hero.greeting")}</div>
+    <div class="text-5xl font-bold">{t("hero.name")}</div>
     <div class="text-3xl py-3 font-bold"></div>
     <div class="py-2">
       <text class="text-lg">
-        <b>Especialista en Growth Marketing y Producto</b> con más de 8 años impulsando
-        la transformación digital y el escalamiento de negocios. Fundador de <a
-          href="https://vehement.co">vehement.co</a
-        > y <a href="https://hazlolatam.com">hazlolatam.com</a>, una próspera
-        comunidad para emprendedores de LATAM. Experto en desarrollo de
-        productos, automatización de marketing B2B e ingeniería de crecimiento
-        con un historial comprobado de llevar startups desde el concepto hasta
-        el liderazgo del mercado. <br /><br />
+        
+          Soy un Especialista en Growth Marketing y Desarrollo de Producto con
+          más de 10 años de experiencia, dedicado a escalar negocios desde la
+          conceptualización hasta la rentabilidad. Mi experiencia se centra en
+          la ingeniería de crecimiento, automatización de marketing B2B y
+          estrategias data-driven con un historial comprobado de optimización de
+          métricas clave: logrando la reducción del CAC en 50%, incrementos del
+          ROI en +70% , e impulsando la conversión de leads hasta en un 300%. <br /><br />
+          
+          Mi enfoque de producto está profundamente arraigado en las metodologías
+          Lean Startup y Agile, garantizando el product-market fit y la
+          validación continua. Soy experto en prototipado rápido y desarrollo de
+          MVPs utilizando un stack tecnológico avanzado, incluyendo herramientas
+          como Bubble, Webflow, Bolt y Cursor (low-code/no-code) , así como
+          plataformas de automatización y outreach como Apollo, Sales Navigator,
+          Instantly, y Hunter para una ejecución de funnel eficiente.<br /><br />
 
-        <b
-          >Especializado en prototipado rápido a través de plataformas
-          no-code/low-code</b
-        > y adopción temprana de IA para mayor productividad e innovación. Competente
-        en herramientas modernas incluyendo Bubble, Webflow, Framer, Cursor y Bolt,
-        habilitando ciclos de desarrollo acelerados e iteraciones de producto fluidas.
-        Capacidades avanzadas de analítica con experiencia práctica en optimización
-        de conversiones, modelado de atribución de marketing y traducción de conjuntos
-        de datos complejos en estrategias de crecimiento accionables. <br /><br
-        />
-
-        Apasionado por aprovechar herramientas de IA de vanguardia para
-        transformar ideas innovadoras en soluciones escalables mientras lidero
-        equipos multifuncionales para entregar resultados excepcionales.
-        Dedicado a mentorear emprendedores y equipos, ayudándolos a aprovechar
-        el poder de las tecnologías no-code e inteligencia artificial para
-        lograr un ROI medible y superar objetivos de crecimiento.
+          Actualmente, lidero equipos multidisciplinarios de Growth, Marketing y
+          Producto con una clara orientación a resultados medibles. Mi
+          compromiso es traducir los insights de datos en estrategias
+          ejecutables para generar un crecimiento sostenible, escalando
+          operaciones desde proyectos internos hasta la gestión de múltiples
+          clientes simultáneos con presupuestos significativos
+        
       </text>
     </div>
     <div class="mt-8">
       <a class="btn" href="https://wa.me/+573133846633" target="_blank">
-        {t('hero.cta')}</a
+        {t("hero.cta")}</a
       >
       <a
-        href="https://www.canva.com/design/DAGx4dU2aao/4Bn2FHkyeWvDvzaVZtgiIw/view?utm_content=DAGx4dU2aao&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he3bd5544a6"
+        href="https://cal.com/abouthernan/meet"
         target="_blank"
         class="btn btn-outline ml-5"
       >
-        {t('hero.resume')}
+        {t("hero.resume")}
       </a>
     </div>
   </div>

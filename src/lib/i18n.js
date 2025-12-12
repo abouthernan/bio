@@ -18,7 +18,7 @@ export const ui = {
     'hero.name': 'Soy Hernán Estupiñán',
     'hero.role': 'Especialista en Growth Marketing y Producto',
     'hero.cta': '¡Hablemos!',
-    'hero.resume': 'Ver CV'
+    'hero.resume': 'Agendar una reunión'
   },
   en: {
     //navegation
@@ -31,7 +31,7 @@ export const ui = {
     'hero.name': "I'm Hernán Estupiñán",
     'hero.role': 'Growth Marketing and Product Specialist',
     'hero.cta': "Let's Talk!",
-    'hero.resume': 'See my Resume'
+    'hero.resume': 'Schedule a Meeting'
   }
 };
 
